@@ -334,8 +334,12 @@ class NFGC_Gravatar_Cache {
 	}
 
 	private function init() {
-		wp_enqueue_script( 'nfgc-main-script', plugins_url( '/js/main.js', __FILE__ ), array( 'jquery' ) );
-		wp_enqueue_style( 'nfgc-main-style', plugins_url( '/css/style.css', __FILE__ ) );
+
+		if ( is_admin() ) {
+
+			wp_enqueue_script( 'nfgc-main-script', plugins_url( '/js/main.js', __FILE__ ), array( 'jquery' ) );
+			wp_enqueue_style( 'nfgc-main-style', plugins_url( '/css/style.css', __FILE__ ) );
+		}
 	}
 }// Class
 
